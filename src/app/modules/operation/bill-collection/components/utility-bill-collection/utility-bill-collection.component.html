@@ -1,0 +1,264 @@
+<form class="mt-5" [formGroup]="utilityBillCollectionForm">
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Customer</label></div>
+        <div class="col-8">
+          <ng-select (change)="onChangeCustomer($event)" [items]="customers" bindLabel="name" bindValue="id"
+            formControlName="customerId"></ng-select>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Customer</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control disabled disabled" formControlName="name">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Father Name</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control disabled disabled" formControlName="fatherName">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Customer Type</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control disabled" formControlName="customerType">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Contact Name</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control disabled" formControlName="contactName">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Level</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control disabled" formControlName="levelNo">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Address</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control disabled" formControlName="address">
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Address</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control disabled" formControlName="address">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <label for="">Bill Info</label>
+  <hr>
+
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Voucher Date</label></div>
+        <div class="col-8">
+          <input type="date" class="form-control" formControlName="voucherDate">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Bill Issue Date</label></div>
+        <div class="col-8">
+          <input type="date" class="form-control disabled " formControlName="billIssueDate"> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center">
+          <label for="">Bill No</label>
+
+        </div>
+        <div class="col-8">
+          <div class="d-flex gap-3">
+            <input type="text" class="form-control " formControlName="billNo" (keyup.enter)="onEnterBillNo()">
+            <button type="button" class="btn-filter" (click)="showDialog()" label="Show"><i class="fa-solid fa-folder-tree"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Due Date</label></div>
+        <div class="col-8">
+          <input type="date" class="form-control disabled" formControlName="dueDate">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+  
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Total Bill</label></div>
+        <div class="col-8">
+          <input type="number" class="form-control disabled" formControlName="totalAmount">
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Net Bill Amount</label></div>
+        <div class="col-8">
+          <input type="number" class="form-control disabled" formControlName="billAmount">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <label for="">Payment Collection</label>
+  <hr>
+
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Net Payable</label></div>
+        <div class="col-8">
+          <input type="number" class="form-control disabled" formControlName="totalAmount">
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Payment Amount</label></div>
+        <div class="col-8">
+          <input type="number" class="form-control" formControlName="paymentAmount" (keyup.enter)="onEnterPaymentAmount()">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Due Amount</label></div>
+        <div class="col-8">
+          <input type="number" class="form-control disabled" formControlName="dueAmount">
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Pay Type</label></div>
+        <div class="col-8">
+          <ng-select (change)="onChangePayType()" [items]="payTypeList" bindLabel="name" bindValue="id"
+          formControlName="payType" [clearable]="false"></ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row mb-3" *ngIf="utilityBillCollectionForm.value.payType==2">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Check No</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control" formControlName="checkNo">
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Check Date</label></div>
+        <div class="col-8">
+          <input type="date" class="form-control" formControlName="checkDate">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-3" *ngIf="utilityBillCollectionForm.value.payType==2">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4 text-end align-content-center"><label for="">Bank Name</label></div>
+        <div class="col-8">
+          <input type="text" class="form-control" formControlName="bankName">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</form>
+<div class="d-flex justify-content-end">
+  <button class="primary-btn" (click)="onSubmit()">Submit</button>
+</div>
+
+
+<p-dialog header="Bill List" [modal]="true" [(visible)]="visible" [style]="{ width: '55rem' }">
+
+  <div class="table-responsive">
+    <table class="mt-1 table table-hover mt-1 text-center customer-list">
+      <thead class="table-head rounded-lg">
+        <tr>
+          <th class="w-55px">Bill No</th>
+          <th class="text-start">Customer Id</th>
+          <th class="text-start">Customer Name</th>
+          <th class="text-start">Contact Name</th>
+          <th class="text-start">Days Pass</th>
+          <th class="text-start">Month Pass</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="bills?.length>0">
+        <tr *ngFor="let data of bills; let i = index" (click)="setDataToForm(data)">
+          <td>{{ data.billNo }}</td>
+          <td class="text-start">{{ data.customerId }}</td>
+          <td class="text-start">{{ data.customerName }}</td>
+          <td class="text-start">{{ data.customerContactName }}</td>
+          <td class="text-start">{{calculateDayMonthPass(data.issueDate,'day')}}</td>
+          <td class="text-start">{{calculateDayMonthPass(data.issueDate,'month')}}</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="(bills?.length < 1 || hasData === false)">
+        <tr>
+          <td colspan="6">
+            <app-empty [message]="'No Data Found'"></app-empty>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</p-dialog>
+
+
+
+<swal #noticeSwal [swalOptions]="swalOptions"> </swal>

@@ -1,0 +1,25 @@
+.card {
+    border: none;
+}
+
+.card-header {
+    align-content: center;
+    border: navajowhite;
+    min-height: 48px;
+}
+
+.card-header p {
+    font-size: 19px;
+    margin: 0;
+    color: #5a5a5a;
+    font-weight: 500;
+}
+.checkbox-disabled{
+    background-color: #5a5a5a !important;
+    pointer-events: none;
+    cursor: no-drop !important;
+}
+.mute{
+    pointer-events: none;
+    cursor: no-drop !important;
+}

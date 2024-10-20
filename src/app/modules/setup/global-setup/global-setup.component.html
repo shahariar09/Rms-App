@@ -1,0 +1,121 @@
+<div class="card">
+  <div class="card-header">
+    <p>Global Setup</p>
+  </div>
+  <div  class="card">
+    <div class="card-body">
+      <form [formGroup]="globalSetupForm">
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">E. Bill Residential</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="residentialEBill">
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">E. Bill Commercial</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="commercialEBill">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Residential Mini Unit</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="residentialMiniUnit">
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Commercial Mini Unit</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="commercialMiniUnit">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Duty on KHW</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="dutyOnKHW">
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">E. Demand Charge</label></div>
+              <div class="col-5">
+                <input type="number" class="form-control" formControlName="demandCharge">
+              </div>
+              <div class="col-3 align-content-center" style="font-size: 12.9px;">
+                Is Fix Amount
+                <input type="checkbox" class="ms-1"  formControlName="isFixDemandCharge">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">E. Motor Charge</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="electricMotorCharge">
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">E. Service Charge</label></div>
+              <div class="col-5">
+                <input type="number" class="form-control" formControlName="serviceCharge">
+              </div>
+              <div class="col-3 align-content-center" style="font-size: 12.9px;">
+                Is Fix Amount
+                <input type="checkbox" class="ms-1"  formControlName="isFixServiceCharge">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">VAT %</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="vat">
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Delay Charge</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="delayCharge">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="d-flex justify-content-end">
+        <button class="primary-btn" (click)="onSubmit()">Submit</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<swal #noticeSwal [swalOptions]="swalOptions"> </swal>

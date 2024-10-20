@@ -1,0 +1,255 @@
+<div class="card">
+  <div class="card-header">
+    <p>Electric Bill Create</p>
+  </div>
+  <div  class="card">
+    <div class="card-body">
+      <form [formGroup]="electricBillForm">
+        <label for="">Customer Info</label>
+        <hr>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Customer</label></div>
+              <div class="col-8">
+                <ng-select (change)="onChangeCustomer($event)" [items]="customers" bindLabel="name" bindValue="id" formControlName="customerId"></ng-select>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Bill No.</label></div>
+              <div class="col-8">
+                <input type="text"  class="form-control disabled" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Customer Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control disabled" formControlName="customerName">
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Contact Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control disabled" formControlName="contactName">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Issue Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control " formControlName="issueDate" (change)="getCustomerWiseDueArrear()">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Due Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control " formControlName="dueDate">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Customer Type</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control disabled" formControlName="customerType">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Minimum Unit</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="minimumUnit">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Unit Rate</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="unitRate">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Meter No</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="electricMetterNo">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Previous Reading</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="previousReading">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Previous Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control disabled" formControlName="previousDate">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <label for="">Generate Bill</label>
+        <hr>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Present Reading</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="presentReading" (keyup.enter)="onEnterPresentReading()">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Consumed Unit</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="consumedUnit">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Consumption Price</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="consumptionPrice">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Demand Charge</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="demandCharge">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Service Charge</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="serviceCharge">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Principal Amount</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="principalAmount">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Duty On KHW</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="dutyOnKhw">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Shop Service Charge</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="shopServiceCharge">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">VAT</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="vat">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Bill Month Total</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled disabled" formControlName="billMonthTotal">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Due</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="previousDueAmount">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Arrear</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled disabled" formControlName="arrearAmount">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Total Amount</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="totalAmount">
+              </div>
+            </div>
+          </div>
+        
+        </div>
+    
+ 
+      </form>
+      <div class="d-flex justify-content-end">
+        <button class="primary-btn" (click)="checkIfSameMonthBillExists()">Submit</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<swal #noticeSwal [swalOptions]="swalOptions"> </swal>

@@ -1,0 +1,167 @@
+<div class="card">
+  <div class="card-header">
+    <p>Utility Bill Create</p>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="utilityBillForm">
+        <label for="">Customer Info</label>
+        <hr>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Customer</label></div>
+              <div class="col-8">
+                <ng-select (change)="onChangeCustomer($event)" [items]="customers" bindLabel="name" bindValue="id"
+                  formControlName="customerId"></ng-select>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Bill No.</label></div>
+              <div class="col-8">
+                <input type="text"  class="form-control disabled" >
+              </div>
+            </div>
+          </div> -->
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Customer Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control disabled" formControlName="customerName">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Contact Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control disabled" formControlName="contactName">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Issue Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control " formControlName="issueDate" (change)="getCustomerWiseDueArrear()">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Due Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control " formControlName="dueDate">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <label for="">Generate Service Bill</label>
+        <hr>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Service Bill Area SFT</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="serviceBillAreaSFT">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Service Bill Rate Srf</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="serviceBillRateSrf">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Previous Due</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="previousDueAmount">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Arrear</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="arrearAmount">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Total Service Bill</label></div>
+                <div class="col-8">
+                  <input type="number" class="form-control disabled" formControlName="serviceBillTotalAmount">
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <label for="">Other Bills</label>
+        <hr>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Generator Bill Amount</label></div>
+                <div class="col-8">
+                  <input type="number" class="form-control " formControlName="generatorBillAmount">
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Tower Bill Amount</label></div>
+                <div class="col-8">
+                  <input type="number" class="form-control " formControlName="towerBillAmount">
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Parking Bill Amount</label></div>
+                <div class="col-8">
+                  <input type="number" class="form-control " formControlName="parkingBillAmount">
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-12">
+          <div class="advance-filter-btn-list">
+            <button type="submit" class="primary-btn me-3" (click)="checkIfSameMonthBillExists()">
+              Submit
+            </button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal #noticeSwal [swalOptions]="swalOptions"> </swal>

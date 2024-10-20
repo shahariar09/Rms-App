@@ -1,0 +1,97 @@
+<div class="card">
+  <div class="card-header">
+    <p>Complex</p>
+  </div>
+  <div  class="card">
+    <div class="card-body">
+      <form [formGroup]="complexForm">
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Complex Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="name">
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Complex No</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="complexNo">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <!-- <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Rent Amt(Per SF)</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="rentAmount">
+              </div>
+            </div>
+          </div> -->
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Service Amt(Per SF)</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="serviceAmout">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Motorcycle Amt(Per Unit)</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="motorcycleParkingAmount">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Car Amt(Per Unit)</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="carParkingAmount">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">User</label></div>
+              <div class="col-8">
+                <ng-select
+                [items]="userList"
+                bindLabel="fullName"
+                bindValue="id"
+                formControlName="userId"
+                ></ng-select>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <!-- <div class="row mb-3">
+           
+        </div> -->
+ 
+      </form>
+      <div class="d-flex justify-content-end">
+        <button class="primary-btn" (click)="onSubmit()">Submit</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <app-complex-list (onClickEdit)="setDataToForm($event)"></app-complex-list>
+  </div>
+
+</div>
+
+<swal #noticeSwal [swalOptions]="swalOptions"> </swal>

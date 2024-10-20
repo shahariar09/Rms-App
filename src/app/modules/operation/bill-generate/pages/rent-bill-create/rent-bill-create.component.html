@@ -1,0 +1,219 @@
+<div class="card">
+  <div class="card-header">
+    <p>Rent & Bill Create</p>
+  </div>
+  <div  class="card">
+    <div class="card-body">
+      <form [formGroup]="electricBillForm">
+        <label for="">Customer Info</label>
+        <hr>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Customer</label></div>
+              <div class="col-8">
+                <ng-select (change)="onChangeCustomer($event)" [items]="customers" bindLabel="name" bindValue="id" formControlName="customerId"></ng-select>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Bill No.</label></div>
+              <div class="col-8">
+                <input type="text"  class="form-control disabled" >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center" ><label for="">Customer Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control disabled" formControlName="customerName">
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Contact Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control disabled" formControlName="contactName">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Issue Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control " formControlName="issueDate" (change)="getCustomerWiseDueArrear()">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Due Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control " formControlName="dueDate">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Customer Type</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control disabled" formControlName="customerType">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Minimum Unit</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="minimumUnit">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Previous Due</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="previousDueAmount">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Arrear</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="arrearAmount">
+              </div>
+            </div>
+          </div>
+        </div>
+       
+
+        <label for="">Generate Bill</label>
+        <hr>
+
+        <div class="table-responsive">
+          <table class="mt-1 table table-hover mt-1 text-center customer-list">
+            <thead class="table-head rounded-lg">
+              <tr>
+                <th class="text-start">Months Name</th>
+                <th class="text-start">Year Name</th>
+                <th class="text-start">Rent Amount</th>
+                <th class="text-start">Service Charge</th>
+                <th class="text-start">Water Bill</th>
+                <th class="text-start">Other Bill</th>
+                <th class="text-start">Gass Bill</th>
+                <th class="text-center">
+                  Check
+                  <!-- <input
+                    type="checkbox"
+                    (change)="onCheckAllBills($event)"
+                    [ngClass]="{
+                      disabled: bills?.length === 0
+                    }"
+                  /> -->
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of bills; let i = index" (dblclick)="goToEditPage(data.Id)">
+                <td class="text-start">{{data.monthsName}}</td>
+                <td class="text-start">{{ data.yearName }}</td>
+                <td class="text-start">{{ data.rentAmount }}</td>
+                <td class="text-start">{{ data.serviceCharge }}</td>
+                <td class="text-start">
+                  <span *ngIf="data.waterBill!=-1">{{ data.waterBill }}</span>
+                  <span *ngIf="data.waterBill==-1">Not Generate</span>
+                </td>
+                <td class="text-start">
+                  <span *ngIf="data.otherBill!=-1">{{ data.otherBill }}</span>
+                  <span *ngIf="data.otherBill==-1">Not Generate</span>
+                </td>
+                <td class="text-start">
+                  <span *ngIf="data.gassBill!=-1">{{ data.gassBill }}</span>
+                  <span *ngIf="data.gassBill==-1">Not Generate</span>
+                </td>
+                <td class="text-center">
+                  <!-- [checked]="isChekedBill(data)" -->
+
+
+                  <label
+                  [ngClass]="{'mute':i>0  }"
+                      class="input-checkbox input-checkbox-all tt"
+                    >
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        [ngClass]="{'checkbox-disabled':i>0  }"
+                        (change)="onCheckBill($event, i,data)"
+                      />
+                      <span class="checkmark" [ngClass]="{'checkbox-disabled':i>0}"></span>
+                    </label>
+
+
+
+                  <!-- <input
+                  [ngClass]="{'disabled':i>0}"
+                    type="checkbox"
+                    
+                    (change)="onCheckBill($event, i,data)"
+                  /> -->
+                </td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="bills?.length < 1">
+              <tr>
+                <td colspan="8" class="p-0">
+                  <app-empty [message]="'No Data Found'"></app-empty>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+     
+
+      
+      
+        <!-- <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">VAT</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled" formControlName="vat">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Bill Month Total</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control disabled disabled" formControlName="billMonthTotal">
+              </div>
+            </div>
+          </div>
+        </div> -->
+    
+ 
+      </form>
+      <div class="d-flex justify-content-end">
+        <button class="primary-btn" (click)="checkIfSameMonthBillExists()">Submit</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<swal #noticeSwal [swalOptions]="swalOptions"> </swal>

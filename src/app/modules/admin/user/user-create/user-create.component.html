@@ -1,0 +1,128 @@
+<div class="card">
+  <div class="card-header">
+    <p>User Create</p>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="userForm" class="searchForm" id="searchForm">
+        <div class="form-group row flex-column mb-3">
+          <div class="col-sm-12 col-md-5 col-lg-3">
+            <label for="party"
+              class="control-label col-form-label float-left text-left font-weight-bolder white-space-pre">
+              Full Name
+              <sup class="text-danger">*</sup>
+            </label>
+          </div>
+          <div class="col-sm-12">
+            <input id="firstName" formControlName="fullName" class="form-control float-left" placeholder="Name"
+              (blur)="logValidationErrors()" [ngClass]="{ 'is-invalid': formError.fullName }" />
+            <span class="invalid-feedback text-left">{{
+              formError.fullName
+              }}</span>
+          </div>
+        </div>
+        <div class="form-group row flex-column mb-3">
+          <div class="col-sm-12 col-md-5 col-lg-3">
+            <label for="party"
+              class="control-label col-form-label float-left text-left font-weight-bolder white-space-pre">
+              User Name
+            </label>
+          </div>
+          <div class="col-sm-12">
+            <input id="name" formControlName="userName" class="form-control float-left" placeholder="Name"
+              (blur)="logValidationErrors()" [ngClass]="{ 'is-invalid': formError.userName }" />
+            <span class="invalid-feedback text-left">{{ formError.userName }}</span>
+          </div>
+        </div>
+        <div class="form-group row flex-column mb-3">
+          <div class="col-sm-12 col-md-5 col-lg-3">
+            <label for="party"
+              class="control-label col-form-label float-left text-left font-weight-bolder white-space-pre">
+              Email
+            </label>
+          </div>
+          <div class="col-sm-12">
+            <input id="name" formControlName="email" class="form-control float-left" placeholder="Email"
+              (blur)="logValidationErrors()" [ngClass]="{ 'is-invalid': formError.email }" />
+            <span class="invalid-feedback text-left">{{ formError.email }}</span>
+          </div>
+        </div>
+        <div class="form-group row flex-column mb-3">
+          <div class="col-sm-12 col-md-5 col-lg-3">
+            <label for="party"
+              class="control-label col-form-label float-left text-left font-weight-bolder white-space-pre">
+              Phone Number <sup class="text-danger">*</sup>
+            </label>
+          </div>
+          <div class="col-sm-12">
+            <input id="name" formControlName="phoneNumber" class="form-control float-left" placeholder="Name"
+              (blur)="logValidationErrors()" [ngClass]="{ 'is-invalid': formError.phoneNumber }" />
+            <span class="invalid-feedback text-left">{{
+              formError.phoneNumber
+              }}</span>
+          </div>
+        </div>
+        <div class="form-group row flex-column mb-3">
+          <div class="col-sm-12 col-md-5 col-lg-3">
+            <label for="party"
+              class="control-label col-form-label float-left text-left font-weight-bolder white-space-pre">
+              Address <sup class="text-danger">*</sup>
+            </label>
+          </div>
+          <div class="col-sm-12">
+            <!-- <input id="name" formControlName="address" class="form-control float-left" placeholder="address" -->
+              
+              <textarea name="" id="" class="form-control" formControlName="address"></textarea>
+            
+          </div>
+        </div>
+        
+
+        <div *ngIf="!(userId > 0)" class="form-group row flex-column mb-3">
+          <div class="col-sm-12 col-md-5 col-lg-3">
+            <label for="party"
+              class="control-label col-form-label float-left text-left font-weight-bolder white-space-pre">
+              Password <sup class="text-danger">*</sup>
+            </label>
+          </div>
+          <div style="position: relative" class="col-sm-12">
+            <input formControlName="password" class="form-control" [type]="passwordShow ? 'text' : 'password'"
+              placeholder="Password" (blur)="logValidationErrors()" [ngClass]="{ 'is-invalid': formError.password }" />
+            <span class="invalid-feedback text-left">{{ formError.password }}</span>
+            <div class="password-actions pointer-cursor" (click)="newPassordType()">
+              <i class="las" [ngClass]="passwordShow ? 'la-eye' : 'la-eye-slash'"></i>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="!(userId > 0)" class="form-group row flex-column mb-3">
+          <div class="col-sm-12 col-md-5 col-lg-3">
+            <label for="party"
+              class="control-label col-form-label float-left text-left font-weight-bolder white-space-pre">
+              Confirm Password <sup class="text-danger">*</sup>
+            </label>
+          </div>
+          <div style="position: relative" class="col-sm-12">
+            <input formControlName="confirmPassword" class="form-control" placeholder="Confirm Password"
+              [type]="matchPasswordShow ? 'text' : 'password'" (blur)="logValidationErrors()" [ngClass]="{
+            'is-invalid': formError.confirmPassword || !matched
+          }" (keyup)="checkMatching($event)" />
+            <span class="invalid-feedback text-left">{{
+              formError.confirmPassword
+              }}</span>
+            <span *ngIf="!matched" class="invalid-feedback text-left">Not matched</span>
+            <div class="password-actions pointer-cursor" (click)="matchPassordType()">
+              <i class="las" [ngClass]="passwordShow ? 'la-eye' : 'la-eye-slash'"></i>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="d-flex justify-content-end">
+        <button class="primary-btn" (click)="onSubmit()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<swal #noticeSwal [swalOptions]="swalOptions"> </swal>

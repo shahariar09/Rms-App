@@ -1,0 +1,71 @@
+<div class="card">
+  <div class="card-header">
+    <p>Bill Collection</p>
+  </div>
+  <div class="card-body">
+    <nav>
+      <div
+        class="nav nav-tabs"
+        id="nav-tab"
+        role="tablist"
+        
+      >
+        <button
+          (click)="selectTab(1)"
+          [ngClass]="{ active: selectedTab === 1 }"
+          class="nav-link"
+          id="nav-home-tab"
+          data-bs-toggle="tab"
+          type="button"
+          role="tab"
+          aria-controls="nav-home"
+          aria-selected="true"
+        >
+        Electric bill
+        </button>
+        <button
+          (click)="selectTab(2)"
+          [ngClass]="{ active: selectedTab === 2 }"
+          class="nav-link"
+          id="nav-profile-tab"
+          data-bs-toggle="tab"
+          type="button"
+          role="tab"
+          aria-controls="nav-profile"
+          aria-selected="false"
+        >
+        Rent Bill
+        </button>
+        <button
+          (click)="selectTab(3)"
+          [ngClass]="{ active: selectedTab === 3 }"
+          class="nav-link"
+          id="nav-profile-tab"
+          data-bs-toggle="tab"
+          type="button"
+          role="tab"
+          aria-controls="nav-profile"
+          aria-selected="false"
+        >
+        Utlity Bill
+        </button>
+       
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div *ngIf="selectedTab === 1" class="my-3" role="tabpanel">
+        <app-electric-bill-collection
+        ></app-electric-bill-collection>
+      </div>
+      <div *ngIf="selectedTab === 2" class="my-3" role="tabpanel">
+        <app-rent-utility-bill-collection
+        ></app-rent-utility-bill-collection>
+      </div>
+      <div *ngIf="selectedTab === 3" class="my-3" role="tabpanel">
+        <app-utility-bill-collection
+        ></app-utility-bill-collection>
+      </div>
+      
+    </div>
+  </div>
+</div>

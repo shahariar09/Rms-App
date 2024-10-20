@@ -1,0 +1,447 @@
+<div class="card">
+  <div class="card-header">
+    <p>Customer</p>
+  </div>
+  <div class="card">
+    <div class="card-body">
+
+
+      <form [formGroup]="customerForm" class="searchForm" id="searchForm">
+        <label class="mb-1">Customer Info</label>
+        <hr>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Complex</label></div>
+              <div class="col-8">
+                <ng-select [items]="complexs" bindLabel="name" bindValue="id" formControlName="complexId"></ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Father</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="fatherName">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Customer Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="name">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Mobile Number</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="mobileNumber">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Address</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="address">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">NID</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="nid">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Phone No.</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="phoneNumber">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Customer Type</label></div>
+              <div class="col-8">
+                <ng-select [items]="customerTypeList" bindLabel="name" bindValue="id"
+                  formControlName="customerType"></ng-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Email</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="email">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Contact Name</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="contactName">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">LevelNo</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="levelNo">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Electric Metter No.</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="electricMetterNo">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Motorcycle Qty</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="motorcycleQuantity">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Car Qty</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="carQuantity">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Deed Start Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control" formControlName="deedStartDate">
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Deed End Date</label></div>
+              <div class="col-8">
+                <input type="date" class="form-control" formControlName="deedEndDate">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Security Deposite</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="securityDeposit">
+              </div>
+            </div>
+          </div>
+         
+        </div>
+
+        <label class="mb-1">Rent & Unility Bill Info</label>
+        <hr>
+
+
+        <div class="row mb-2">
+          <div class="col-1"></div>
+          <div class="col-4 ">
+            <input type="checkbox" formControlName="isRentFixed" (change)="onChangeFixRent()">
+            <label class="ms-2">Is Rent Fix</label>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-6">
+
+
+            <!-- <div class="row" *ngIf="customerForm.value.isRentFixed">
+              <div class="col-3 text-end align-content-center"><label for="">Rent</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="rentAmount">
+              </div>
+            </div> -->
+            <div class="row" >
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-10">
+                    <div class="row">
+                      <div class="col-3 align-content-center mb-3"><label for="">Area(SFT)</label></div>
+                      <div class="col-8">
+                        <input type="number" class="form-control" formControlName="areaSft">
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-10" *ngIf="customerForm.value.isRentFixed">
+                    <div class="row">
+                      <div class="col-3  align-content-center"><label for="">Fix Rent</label></div>
+                      <div class="col-8">
+                        <input type="number" class="form-control" formControlName="rentAmount">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-10" *ngIf="!customerForm.value.isRentFixed">
+                    <div class="row">
+                      <div class="col-3  align-content-center"><label for="">Per SRF Rent</label></div>
+                      <div class="col-8">
+                        <input type="number" class="form-control" formControlName="rateSrf">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+
+          
+
+
+
+
+          </div>
+          <div class="col-6">
+            <div class="row mb-3">
+              <div class="col-4 text-end align-content-center"><label for="">Service Charge</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="serviceCharge">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4 text-end align-content-center"><label for="">Service Bill Rate Srf</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="serviceBillRateSrf">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+
+     
+
+        
+
+        <div class="row mb-2">
+          <div class="col-1"></div>
+          <div class="col-4 ">
+            <input type="checkbox" formControlName="isWaterBillRequired">
+            <label class="ms-2">Water Bill Require</label>
+          </div>
+        </div>
+
+        <div class="row mb-3" *ngIf="customerForm.value.isWaterBillRequired">
+          <div class="col-6">
+            <div class="row">
+              <div class="col-3 text-end align-content-center"><label for="">Water Bill</label></div>
+              <div class="col-8">
+                <input type="text" class="form-control" formControlName="waterBill">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row mb-2">
+          <div class="col-1"></div>
+          <div class="col-4 ">
+            <input type="checkbox" formControlName="isGasBillRequired">
+            <label class="ms-2">Gas Bill Require</label>
+          </div>
+        </div>
+
+        <div class="row mb-4" *ngIf="customerForm.value.isGasBillRequired">
+          <div class="col-12">
+            <label for="">Gass Bill Create</label>
+            <hr>
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3 text-end align-content-center"><label for="">Bill Type</label></div>
+                  <div class="col-8">
+                    <ng-select [items]="gassBillTypes" bindLabel="name" bindValue="id"
+                      formControlName="gassBillType" (change)="onChangeGassBillType()"></ng-select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6" *ngIf="customerForm.value.gassBillType==1">
+                <div class="row">
+                  <div class="col-3 text-end align-content-center"><label for="">Unit Price</label></div>
+                  <div class="col-8">
+                    <input type="text" class="form-control " formControlName="gassBillUnitPrice">
+                  </div>
+                </div>
+              </div>
+              <div class="col-6" *ngIf="customerForm.value.gassBillType==2">
+                <div class="row">
+                  <div class="col-3 text-end align-content-center"><label for="">Stove Type</label></div>
+                  <div class="col-8">
+                    <ng-select [items]="stoveTypes" bindLabel="name" bindValue="id"
+                      formControlName="gasStoveType"  (change)="onChangeStoveType()"></ng-select>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-2" *ngIf="customerForm.value.gasStoveType">
+          <div class="col-6" *ngIf="customerForm.value.gasStoveType==1">
+            <div class="row">
+              <div class="col-3 text-end align-content-center"><label for="">Single Stove Amount</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="gasSingleStoveAmount">
+              </div>
+            </div>
+          </div>
+          <div class="col-6" *ngIf="customerForm.value.gasStoveType==2">
+            <div class="row">
+              <div class="col-3 text-end align-content-center"><label for="">Double Stove Amount</label></div>
+              <div class="col-8">
+                <input type="number" class="form-control" formControlName="gasDoubleStoveAmount">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-1"></div>
+          <div class="col-4 ">
+            <input type="checkbox" formControlName="isFixElectricBill">
+            <label class="ms-2">Fix Electric bill</label>
+          </div>
+        </div>
+
+        <div class="row mb-4" *ngIf="customerForm.value.isFixElectricBill">
+          <div class="col-12">
+            <label for="">Fix Electric bill</label>
+            <hr>
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-3 text-end align-content-center"><label for="">Fix Electric bill</label></div>
+                  <div class="col-8">
+                    <input class="form-control" type="number" formControlName="fixElectricBillAmount">
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="row p-3 border rounded">
+          <div class="col-4">
+            <label for="">Customer Image</label>
+
+            <div class="pic-holder">
+              <img *ngIf="this.customerForm.value.imageUrl" id="profilePic" width="192" height="192" class="pic ml-5"
+                [src]="this.customerForm.value.imageUrl" />
+              <!-- <img src="../../../../../assets/media/icon/upload-image.png" alt=""> -->
+
+              <div class="rr" *ngIf="!this.customerForm.value.imageUrl">
+                <Input formControlName="imageFile" class="uploadProfileInput" type="file" name="profile_pic"
+                  id="newProfilePhoto" accept="image/*" (change)="imageChangeHandler($event)" />
+              </div>
+              <a (click)="removeImage()" *ngIf="this.customerForm.value.imageUrl"><i
+                  class="fa-solid fa-circle-xmark"></i></a>
+            </div>
+
+          </div>
+          <div class="col-4">
+            <label for="">NID Image</label>
+            <div class="pic-holder">
+              <img *ngIf="this.customerForm.value.nidImageUrl" id="profilePic" width="192" height="192" class="pic ml-5"
+                [src]="this.customerForm.value.nidImageUrl" />
+              <!-- <img src="../../../../../assets/media/icon/upload-image.png" alt=""> -->
+
+              <div class="rr" *ngIf="!this.customerForm.value.nidImageUrl">
+                <Input formControlName="nidImageFile" class="uploadProfileInput" type="file" name="profile_pic"
+                  id="newProfilePhoto" accept="image/*" (change)="nidImageChangeHandler($event)" />
+              </div>
+              <a (click)="removeNidImage()" *ngIf="this.customerForm.value.nidImageUrl"><i
+                  class="fa-solid fa-circle-xmark"></i></a>
+            </div>
+          </div>
+          <div class="col-4">
+            <label for="">Other Document</label>
+            <div class="pic-holder">
+              <img *ngIf="this.customerForm.value.otherDocumentUrl" id="profilePic" width="192" height="192" class="pic ml-5"
+                [src]="this.customerForm.value.otherDocumentUrl" />
+              <!-- <img src="../../../../../assets/media/icon/upload-image.png" alt=""> -->
+
+              <div class="rr" *ngIf="!this.customerForm.value.otherDocumentUrl">
+                <Input formControlName="otherDocumentFile" class="uploadProfileInput" type="file" name="profile_pic"
+                  id="newProfilePhoto" accept="image/*" (change)="OtherDocumentChangeHandler($event)" />
+              </div>
+              <a (click)="removeDocument()" *ngIf="this.customerForm.value.otherDocumentUrl"><i
+                  class="fa-solid fa-circle-xmark"></i></a>
+            </div>
+          </div>
+        </div>
+
+        
+        
+
+
+      </form>
+      <div class="row">
+        <div class="col-12">
+          <div class="advance-filter-btn-list">
+            <button type="submit" class="primary-btn me-3" (click)="onSubmit()">
+              Submit
+            </button>
+            <button type="submit" class="btn btn-light" (click)="onCancel()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<swal #noticeSwal [swalOptions]="swalOptions"> </swal>
+
+
+<div class="card">
+  <app-customer-list (onClickEdit)="setDataToForm($event)"></app-customer-list>
+</div>
