@@ -65,7 +65,7 @@ export class RentUtilityBillCollectionComponent implements OnInit {
 
   }
   GetRentAndUtilityBillByCustomer(){
-    this.billGenerateService.GetRentAndUtilityBillByCustomer(1,1000,null,this.electricBillCollectionForm.value.customerId).subscribe(
+    this.billGenerateService.GetRentAndUtilityBillByCustomer(1,1000,null,this.electricBillCollectionForm.value.customerId,false).subscribe(
       (data)=>{
         
         this.bills = data;
@@ -98,7 +98,7 @@ export class RentUtilityBillCollectionComponent implements OnInit {
 
       this.electricBillCollectionForm.get("billNo").patchValue(data.billNo)
       this.electricBillCollectionForm.get("billAmount").patchValue(data.totalBillAmount)
-      this.electricBillCollectionForm.get("totalAmount").patchValue(data.totalBillAmount)
+      this.electricBillCollectionForm.get("totalAmount").patchValue(data.totalAmount)
       this.electricBillCollectionForm.get("dueAmount").patchValue((this.electricBillCollectionForm.value.totalAmount-data.paidAmount).toFixed(2))
       console.log(data);
     }

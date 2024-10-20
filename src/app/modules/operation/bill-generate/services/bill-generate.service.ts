@@ -68,17 +68,23 @@ export class BillGenerateService {
       })
       .pipe(catchError(this.handleError));
   }
-  GetRentAndUtilityBillByCustomer(page?, itemPerPage?, searchKey?,customerId?): Observable<any> {
+  GetRentAndUtilityBillByCustomer(page?, itemPerPage?, searchKey?,customerId?,billPayStatus?): Observable<any> {
 
     let params = new HttpParams();
     if (customerId) {
       params = params.append('CustomerId', customerId);
     }
-
+    if (billPayStatus!=null) {
+      params = params.append('BillPayStatus', billPayStatus);
+    }
+    
     
     if (searchKey != null) {
       params = params.append('PageParams.SearchKey', searchKey);
     }
+   
+     
+    
 
     if (page != null && itemPerPage != null) {
       params = params.append('PageParams.PageNumber', page);

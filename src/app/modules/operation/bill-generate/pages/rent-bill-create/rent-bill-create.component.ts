@@ -322,8 +322,9 @@ var billMonthTotal  =  principalAmount + vat;
 
   checkIfSameMonthBillExists(){
     
-    this.service.GetRentAndUtilityBillByCustomer(1,1000,null,this.electricBillForm.value.customerId).subscribe(
+    this.service.GetRentAndUtilityBillByCustomer(1,1000,null,this.electricBillForm.value.customerId,null).subscribe(
       (data)=>{
+        debugger
         console.log(data);
         
         var isBillExist= this.checkIfDateMatches(data);
